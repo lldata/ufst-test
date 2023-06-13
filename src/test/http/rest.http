@@ -1,0 +1,28 @@
+# income 10000
+POST http://localhost:8080/api/tax/calculate
+Content-Type: application/json
+
+{
+    "name": "Tax 1",
+    "income": 10000
+}
+
+###
+
+# get rate
+GET http://localhost:8080/api/tax/rate/10000
+
+###
+
+# income 10000
+POST http://localhost:8080/api/tax-reports
+Content-Type: application/json
+
+{
+    "name": "Tax 1",
+    "income": 10000
+}
+
+###
+
+GET http://localhost:8080/api/tax-reports
