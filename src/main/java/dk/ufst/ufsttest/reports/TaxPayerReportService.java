@@ -9,7 +9,6 @@ import java.util.List;
 
 @Component
 public class TaxPayerReportService {
-  final List list;
   final TaxRateFinder taxRateFinder;
   final TaxCalculator taxCalculator;
   final TaxPayerReportRepository taxPayerReportRepository;

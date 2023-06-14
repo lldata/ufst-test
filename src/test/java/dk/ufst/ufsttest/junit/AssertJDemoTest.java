@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.*;
 public class AssertJDemoTest {
   @Test
   public void assertion() {
-    assertThat(2 + 2).isEqualTo(5);
+    assertThat(2 + 2).isEqualTo(4);
   }
 
   @Test
