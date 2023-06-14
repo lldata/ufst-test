@@ -2,3 +2,8 @@ logging:
   level:
     root: warn
     dk.ufst: debug
+
+ufst:
+  rate: 0.20
+  size: 1gb
+  duration: 300ms

@@ -5,10 +5,12 @@ import dk.ufst.ufsttest.rates.restjoke.JokeTaxRateFinder;
 import dk.ufst.ufsttest.rates.simple.SimpleTaxRateFinder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
+@EnableConfigurationProperties
 public class UfstTestApplication {
 
   public static void main(String[] args) {

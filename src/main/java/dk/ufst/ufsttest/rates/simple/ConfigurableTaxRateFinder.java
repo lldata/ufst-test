@@ -1,11 +1,15 @@
 package dk.ufst.ufsttest.rates.simple;
 
+import dk.ufst.ufsttest.config.AppConfig;
 import dk.ufst.ufsttest.rates.TaxRateFinder;
 import org.springframework.beans.factory.annotation.Value;
 
-public class SimpleTaxRateFinder implements TaxRateFinder {
-    @Value("${ufsttest.rates.simple.taxratefinder.taxrate:0.1}")
-    double rate;
+public class ConfigurableTaxRateFinder implements TaxRateFinder {
+    final double rate;
+
+    public ConfigurableTaxRateFinder(AppConfig appConfig) {
+        this.rate = appConfig.getRate();
+    }
 
     public double findRate(double income) {
         if (income < 10000) {

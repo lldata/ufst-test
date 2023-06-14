@@ -67,6 +67,17 @@ public class TaxReportsTestContainersDemoTest {
     assertThat(count).isEqualTo(3);
   }
 
+  @Test
+  public void add4() {
+    for (int i = 0; i < 4; i++) {
+      restService.addReport(new TaxPayer("name", 1000));
+    }
+
+    // count the number of reports in the database
+    long count = entityManager.getEntityManager().createQuery("select count(e) from TaxPayerReport e", Long.class).getSingleResult();
+    assertThat(count).isEqualTo(4);
+  }
+
   @TestConfiguration
   @Import({
       TaxPayerReportRestService.class,

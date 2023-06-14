@@ -54,6 +54,7 @@ public class TaxCalculatorRestMockTest {
 
       var httpResponse = Mockito.mock(HttpResponse.class);
       Mockito.when(httpResponse.body()).thenReturn(dummyResponse);
+      Mockito.when(httpResponse.statusCode()).thenReturn(200);
 
       HttpClient httpClient = Mockito.mock(HttpClient.class);
       Mockito.when(httpClient.send(any(), any())).thenReturn(httpResponse);

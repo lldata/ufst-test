@@ -1,6 +1,8 @@
 package dk.ufst.ufsttest.styles;
 
+import dk.ufst.ufsttest.config.AppConfig;
 import dk.ufst.ufsttest.rates.TaxRateFinder;
+import dk.ufst.ufsttest.rates.simple.ConfigurableTaxRateFinder;
 import dk.ufst.ufsttest.tax.TaxCalculator;
 import dk.ufst.ufsttest.rates.simple.SimpleTaxRateFinder;
 import org.junit.jupiter.api.Test;
@@ -27,6 +29,21 @@ public class TaxCalculatorTest {
         assertEquals(25000, tax, 0.01, "Tax should be correctly calculated");
     }
 
+
+    @Test
+    public void classistConfig() {
+        // Arrange
+        var config = new AppConfig();
+        config.setRate(0.2);
+        var taxRateFinder = new ConfigurableTaxRateFinder(config);
+        var taxCalculator = new TaxCalculator(taxRateFinder);
+
+        // Act
+        double tax = taxCalculator.calculateTax(50000);
+
+        // Assert
+        assertEquals(25000, tax, 0.01, "Tax should be correctly calculated");
+    }
     /**
      * Using mockito to mock a dependency
      *
@@ -74,13 +91,13 @@ public class TaxCalculatorTest {
     @Test
     public void stubClassic() {
         // Arrange
-        TaxRateFinder taxRateFinder = new SimpleTaxRateFinder() {
+        TaxRateFinder stubTaxRateFinder = new SimpleTaxRateFinder() {
             @Override
             public double findRate(double income) {
                 return 0.5;
             }
         };
-        TaxCalculator taxCalculator = new TaxCalculator(taxRateFinder);
+        TaxCalculator taxCalculator = new TaxCalculator(stubTaxRateFinder);
 
         // Act
         double tax = taxCalculator.calculateTax(50000);
