@@ -26,7 +26,7 @@ public class TaxReportsProfiling {
   @Autowired
   TaxPayerReportRestService restService;
 
-  @Disabled // enable when you need to profile ... :)
+  //@Disabled // enable when you need to profile ... :)
   @Test
   public void addSome() {
     for (int i = 0; i < 10; i++) {

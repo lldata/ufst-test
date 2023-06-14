@@ -1,16 +1,15 @@
 package dk.ufst.ufsttest.junit;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
 
-public class AssertJDemo {
+public class AssertJDemoTest {
   @Test
   public void assertion() {
-    assertThat(2 + 2).isEqualTo(4);
+    assertThat(2 + 2).isEqualTo(5);
   }
 
   @Test

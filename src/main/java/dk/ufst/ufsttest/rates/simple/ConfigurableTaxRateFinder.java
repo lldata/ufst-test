@@ -10,7 +10,6 @@ public class ConfigurableTaxRateFinder implements TaxRateFinder {
     public ConfigurableTaxRateFinder(AppConfig appConfig) {
         this.rate = appConfig.getRate();
     }
-
     public double findRate(double income) {
         if (income < 10000) {
             return 0.1;  // 10% tax rate
